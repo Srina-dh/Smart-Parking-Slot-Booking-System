@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parking Dashboard</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: auto;
+            border: 2px solid black;
+        }
+        .company-block {
+            position: absolute;
+            top: 30%;
+            left: 35%;
+            width: 30%;
+            height: 40%;
+            background-color: gray;
+            text-align: center;
+            line-height: 160px;
+            font-weight: bold;
+        }
+        .slot {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border: 2px solid green;
+            cursor: pointer;
+            background-color: white;
+        }
+        .booked {
+            border: 2px solid red;
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <h2>Parking Slot Booking</h2>
+    <div class="container">
+        <div class="company-block">Company Block</div>
+        
+        <!-- Slots around the company block -->
+        <div class="slot" style="top: 10px; left: 100px;" onclick="bookSlot(this, 1)">1</div>
+        <div class="slot" style="top: 10px; left: 200px;" onclick="bookSlot(this, 2)">2</div>
+        <div class="slot" style="top: 10px; left: 300px;" onclick="bookSlot(this, 3)">3</div>
+        <div class="slot" style="top: 10px; left: 400px;" onclick="bookSlot(this, 4)">4</div>
+        
+        <div class="slot" style="top: 300px; left: 100px;" onclick="bookSlot(this, 5)">5</div>
+        <div class="slot" style="top: 300px; left: 200px;" onclick="bookSlot(this, 6)">6</div>
+        <div class="slot" style="top: 300px; left: 300px;" onclick="bookSlot(this, 7)">7</div>
+        <div class="slot" style="top: 300px; left: 400px;" onclick="bookSlot(this, 8)">8</div>
+    </div>
+    
+    <script>
+        function bookSlot(slotElement, slotId) {
+            if (slotElement.classList.contains('booked')) {
+                alert("Slot " + slotId + " is already booked.");
+                return;
+            }
+            let confirmBooking = confirm("Do you want to book Slot " + slotId + "?");
+            if (confirmBooking) {
+                slotElement.classList.add('booked');
+            }
+        }
+    </script>
+</body>
+</html>
